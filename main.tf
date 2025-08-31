@@ -12,8 +12,8 @@ data "aws_ami" "amazon_linux" {
     }
 }
 
-resource "aws_security_group" "automation_sg" {
-    name="tf-ec2-sg"
+resource "aws_security_group" "automation_sg_v2" {
+    name="tf-ec2-sg_v2"
     description="Allow SSH and HTTP"
     
     ingress{
@@ -40,7 +40,7 @@ resource "aws_security_group" "automation_sg" {
     }
 }
 
-resource "aws_instance" "automation_web" {
+resource "aws_instance" "automation_web_v2" {
     ami= data.aws_ami.amazon_linux.id
     instance_type = "t2.micro"
     key_name = "automation"
